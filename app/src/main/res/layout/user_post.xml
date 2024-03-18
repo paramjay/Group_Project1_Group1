@@ -34,7 +34,7 @@
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <TextView
-                    android:id="@+id/DetailsProfileUserName"
+                    android:id="@+id/textViewUserName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
