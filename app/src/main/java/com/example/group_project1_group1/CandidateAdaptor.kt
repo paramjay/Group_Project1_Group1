@@ -14,6 +14,8 @@ import com.google.firebase.storage.StorageReference
 
 class CandidateAdaptor(options: FirebaseRecyclerOptions<UserActivity>) : FirebaseRecyclerAdapter<UserActivity,
         CandidateAdaptor.MyViewHolder>(options)  {
+
+    var onItemClick: ((position: Int) -> Unit)? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.user_post, parent, false)
         return MyViewHolder(view)
@@ -23,14 +25,21 @@ class CandidateAdaptor(options: FirebaseRecyclerOptions<UserActivity>) : Firebas
         Glide.with(holder.posted_image.context).load(storRef).into(holder.posted_image)
 
         holder.textViewUserName.text = "${model.username}"
+
         holder.tViewtitle.text = "${model.title}"
+
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     {
         val textViewUserName: TextView = itemView.findViewById(R.id.textViewUserName)
+
         val tViewtitle: TextView = itemView.findViewById(R.id.tViewtitle)
         val posted_image: ImageView = itemView.findViewById(R.id.posted_image)
-
+        init {
+            itemView.setOnClickListener {
+                onItemClick?.invoke(adapterPosition)
+            }
+        }
     }
 }

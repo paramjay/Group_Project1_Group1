@@ -1,5 +1,6 @@
 package com.example.group_project1_group1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -19,7 +20,7 @@ class Candidate : AppCompatActivity() {
 
         val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().getReference("activity")
 
-        val query: Query = databaseReference.orderByChild("username").equalTo("paramjay")
+        val query: Query = databaseReference.orderByChild("username").equalTo("Paramjay")
         val options = FirebaseRecyclerOptions.Builder<UserActivity>()
             .setQuery(query, UserActivity::class.java)
             .build()
@@ -27,6 +28,17 @@ class Candidate : AppCompatActivity() {
         val RecyclerViewMyActivity: RecyclerView = findViewById(R.id.RecyclerViewMyActivity)
         RecyclerViewMyActivity.layoutManager = LinearLayoutManager(this)
         adapter = CandidateAdaptor(options)
+
+        adapter!!.onItemClick = { position ->
+
+            val userActivity = adapter!!.getItem(position)
+
+            val intent = Intent(this, Details::class.java)
+            intent.putExtra("username", userActivity.username)
+            intent.putExtra("title", userActivity.title)
+            intent.putExtra("image", userActivity.image)
+            startActivity(intent)
+        }
 
         RecyclerViewMyActivity.adapter = adapter
 
