@@ -24,6 +24,17 @@ class MainActivity : AppCompatActivity() {
         RviewMain.layoutManager = LinearLayoutManager(this)
         adapter = ConnectionsActivityAdaptor(options)
 
+        adapter!!.onItemClick = { position ->
+
+            val userActivity = adapter!!.getItem(position)
+
+            val intent = Intent(this, Details::class.java)
+            intent.putExtra("username", userActivity.username)
+            intent.putExtra("title", userActivity.title)
+            intent.putExtra("image", userActivity.image)
+            startActivity(intent)
+        }
+
         RviewMain.adapter = adapter
 
         val buttonNavigate: Button = findViewById(R.id.GoToCandidate);
@@ -37,3 +48,4 @@ class MainActivity : AppCompatActivity() {
         adapter?.startListening()
     }
 }
+

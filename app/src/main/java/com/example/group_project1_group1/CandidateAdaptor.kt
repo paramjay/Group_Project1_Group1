@@ -22,17 +22,14 @@ class CandidateAdaptor(options: FirebaseRecyclerOptions<UserActivity>) : Firebas
         val storRef: StorageReference = FirebaseStorage.getInstance().getReferenceFromUrl(model.image)
         Glide.with(holder.posted_image.context).load(storRef).into(holder.posted_image)
 
-        val storRef2: StorageReference = FirebaseStorage.getInstance().getReferenceFromUrl(model.image)
-        Glide.with(holder.user_profile.context).load(storRef2).into(holder.user_profile)
-
         holder.textViewUserName.text = "${model.username}"
-//        holder.txtBrand.text = "Brand: ${model.brand}"
+        holder.tViewtitle.text = "${model.title}"
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     {
         val textViewUserName: TextView = itemView.findViewById(R.id.textViewUserName)
-        val user_profile: ImageView = itemView.findViewById(R.id.user_profile)
+        val tViewtitle: TextView = itemView.findViewById(R.id.tViewtitle)
         val posted_image: ImageView = itemView.findViewById(R.id.posted_image)
 
     }

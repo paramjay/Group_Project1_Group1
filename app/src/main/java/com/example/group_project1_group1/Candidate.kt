@@ -17,14 +17,9 @@ class Candidate : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.candidate)
 
-//        val query = FirebaseDatabase.getInstance().reference.child("activity")
-//            .child("username").equalTo("paramjay")
         val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().getReference("activity")
-//
+
         val query: Query = databaseReference.orderByChild("username").equalTo("paramjay")
-
-
-//            .child("username").equalTo("Paramjay")
         val options = FirebaseRecyclerOptions.Builder<UserActivity>()
             .setQuery(query, UserActivity::class.java)
             .build()
