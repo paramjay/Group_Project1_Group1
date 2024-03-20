@@ -30,22 +30,23 @@ class Details : AppCompatActivity() {
 
         val title: String? = intent.getStringExtra("title")
 
-        val image: String? = intent.getStringExtra("image")
+        val description: String? = intent.getStringExtra("description")
+
+        val date: String? = intent.getStringExtra("date")
 
         val textViewUserName: TextView = findViewById(R.id.textViewUserName)
         val textViewTitle: TextView = findViewById(R.id.textViewTitle)
-        val detailPostImage: ImageView = findViewById(R.id.detailPostImage)
+        val detailDescription: TextView = findViewById(R.id.detailDescription)
+
+        val detailDate: TextView = findViewById(R.id.detailDate)
+
         val DetailsProfilePhoto: ImageView = findViewById(R.id.DetailsProfilePhoto)
 
-        if (!image.isNullOrEmpty()) {
-            val storRef: StorageReference =
-                FirebaseStorage.getInstance().getReferenceFromUrl(image.toString())
-            Glide.with(detailPostImage.context).load(storRef).into(detailPostImage)
-        }
 
         textViewTitle.text=title
         textViewUserName.text=username
-
+        detailDescription.text=description;
+        detailDate.text="posted on "+date
 
         val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().getReference("user")
         val query: Query = databaseReference.orderByChild("username").equalTo(username)
@@ -67,15 +68,6 @@ class Details : AppCompatActivity() {
                 Log.i("Error reading data", databaseError.toException().toString())
             }
         })
-
-        val DetailsConnectButton: Button = findViewById(R.id.DetailsConnectButton);
-        DetailsConnectButton.setOnClickListener {
-            if(DetailsConnectButton.text.equals("Connected")){
-                DetailsConnectButton.text="Connect"
-            }else{
-                DetailsConnectButton.text="Connected"
-            }
-        }
 
 
     }

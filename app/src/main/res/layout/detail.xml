@@ -42,15 +42,6 @@
                     android:textColor="#202020"
                     android:textSize="24sp" />
 
-                <Button
-                    android:id="@+id/DetailsConnectButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#DAE2FF"
-                    android:text="Connect"
-                    android:textColor="#346CDA"
-                    android:textSize="16sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -84,13 +75,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="TextView" />
+                android:text="Title"
+                android:textSize="19sp"
+                android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/detailPostImage"
+            <TextView
+                android:id="@+id/detailDescription"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in ligula vitae libero vehicula posuere. Proin in eros non quam ultrices tristique. Sed id dolor justo. Maecenas quis quam vel est accumsan fringilla ut at urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae magna rhoncus, lobortis nunc."
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/detailDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Posted on 23-01-2024"
+                android:textStyle="italic" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -99,41 +103,28 @@
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textViewLike"
+                <Button
+                    android:id="@+id/buttonApply"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:text="Like"
-                    android:textAlignment="center"
-                    android:textColor="#202020"
-                    android:textSize="16sp" />
+                    android:backgroundTint="#3E53C1"
+                    android:text="Apply"
+                    app:cornerRadius="-20dp" />
 
-                <TextView
-                    android:id="@+id/textViewComment"
+                <Button
+                    android:id="@+id/buttonShare"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:text="Comments"
-                    android:textAlignment="center"
-                    android:textColor="#202020"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/textViewShare"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:backgroundTint="#EC053B"
                     android:text="Share"
-                    android:textAlignment="center"
-                    android:textColor="#202020"
-                    android:textSize="16sp" />
+                    app:cornerRadius="-20dp" />
+
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
 </LinearLayout>

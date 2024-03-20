@@ -21,8 +21,6 @@ class CandidateAdaptor(options: FirebaseRecyclerOptions<UserActivity>) : Firebas
         return MyViewHolder(view)
     }
     override fun onBindViewHolder(holder: MyViewHolder, position: Int, model: UserActivity) {
-        val storRef: StorageReference = FirebaseStorage.getInstance().getReferenceFromUrl(model.image)
-        Glide.with(holder.posted_image.context).load(storRef).into(holder.posted_image)
 
         holder.textViewUserName.text = "${model.username}"
 
@@ -35,7 +33,6 @@ class CandidateAdaptor(options: FirebaseRecyclerOptions<UserActivity>) : Firebas
         val textViewUserName: TextView = itemView.findViewById(R.id.textViewUserName)
 
         val tViewtitle: TextView = itemView.findViewById(R.id.tViewtitle)
-        val posted_image: ImageView = itemView.findViewById(R.id.posted_image)
         init {
             itemView.setOnClickListener {
                 onItemClick?.invoke(adapterPosition)

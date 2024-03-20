@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="Description"
-                android:inputType="textPassword" />
+                android:inputType="textLongMessage" />
 
             <Button
                 android:id="@+id/addPostButton"

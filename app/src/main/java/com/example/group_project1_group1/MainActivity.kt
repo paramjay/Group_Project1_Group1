@@ -31,7 +31,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Details::class.java)
             intent.putExtra("username", userActivity.username)
             intent.putExtra("title", userActivity.title)
-            intent.putExtra("image", userActivity.image)
+            intent.putExtra("description", userActivity.description)
+            intent.putExtra("date", userActivity.date)
             startActivity(intent)
         }
 
