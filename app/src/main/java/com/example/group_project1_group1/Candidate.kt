@@ -42,6 +42,16 @@ class Candidate : AppCompatActivity() {
 
         RecyclerViewMyActivity.adapter = adapter
 
+        val CandidateToHome: Button = findViewById(R.id.CandidateToHome);
+        CandidateToHome.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+        val CandidateToPost: Button = findViewById(R.id.CandidateToPost);
+        CandidateToPost.setOnClickListener {
+            val intent = Intent(this, Post::class.java)
+            startActivity(intent)
+        }
     }
     override fun onStart() {
         super.onStart()

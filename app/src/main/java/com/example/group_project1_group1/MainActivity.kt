@@ -37,9 +37,19 @@ class MainActivity : AppCompatActivity() {
 
         RviewMain.adapter = adapter
 
-        val buttonNavigate: Button = findViewById(R.id.GoToCandidate);
-        buttonNavigate.setOnClickListener {
+        val GoToCandidate: Button = findViewById(R.id.GoToCandidate);
+        GoToCandidate.setOnClickListener {
             val intent = Intent(this, Candidate::class.java)
+            startActivity(intent)
+        }
+//        val homeButton: Button = findViewById(R.id.homeButton);
+//        homeButton.setOnClickListener {
+//            val intent = Intent(this, Candidate::class.java)
+//            startActivity(intent)
+//        }
+        val postButton: Button = findViewById(R.id.postButton);
+        postButton.setOnClickListener {
+            val intent = Intent(this, Post::class.java)
             startActivity(intent)
         }
     }
